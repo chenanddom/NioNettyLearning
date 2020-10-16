@@ -29,5 +29,6 @@ public class ClearBufferTest {
         byteBuffer.clear();
         System.out.println("byteBuffer.position()="+byteBuffer.position());
 
+
     }
 }

@@ -1,5 +1,7 @@
 package com.itdom;
 
+import com.sun.corba.se.impl.orbutil.HexOutputStream;
+
 import java.nio.channels.AsynchronousChannel;
 import java.nio.channels.Channel;
 import java.nio.channels.InterruptibleChannel;
@@ -41,7 +43,7 @@ public class Demo implements AutoCloseable{
         return this;
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
 
 
         List<Demo> demos = new ArrayList<Demo>(){{
@@ -64,9 +66,25 @@ public class Demo implements AutoCloseable{
 //        AsynchronousChannel
 
 //        InterruptibleChannel
-    }
+    }*/
 
     public void close() throws Exception {
         System.out.println("自动关闭资源...");
     }
+
+
+    public static void main(String[] args) {
+        String content = "this is a demoahdajshdajsdhaskjdhajsdhasjk";
+        System.out.println(strTo16(content));
+    }
+    public static String strTo16(String s) {
+        String str = "";
+        for (int i = 0; i < s.length(); i++) {
+            int ch = (int) s.charAt(i);
+            String s4 = Integer.toHexString(ch);
+            str = str + s4;
+        }
+        return str;
+    }
+
 }

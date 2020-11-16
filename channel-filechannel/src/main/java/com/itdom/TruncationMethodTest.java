@@ -21,12 +21,18 @@ public class TruncationMethodTest {
 
         fileChannel.write(byteBuffer);
         System.out.println("A Size="+fileChannel.size()+" position="+fileChannel.position());
-        fileChannel.truncate(3);
+        fileChannel.truncate(100);
         System.out.println("B Size="+fileChannel.size()+" position="+fileChannel.position());
 
         fileChannel.close();
         fileOutputStream.flush();
         fileChannel.close();
+
+
+
+        //---------------------------给定大小大于或等于该文件的当前大小， 则不修改文件-------------------------------------
+
+
 
 
     }

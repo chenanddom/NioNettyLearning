@@ -2,6 +2,9 @@ package com.itdom;
 
 import com.sun.corba.se.impl.orbutil.HexOutputStream;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.channels.AsynchronousChannel;
 import java.nio.channels.Channel;
 import java.nio.channels.InterruptibleChannel;
@@ -73,9 +76,15 @@ public class Demo implements AutoCloseable{
     }
 
 
-    public static void main(String[] args) {
-        String content = "this is a demoahdajshdajsdhaskjdhajsdhasjk";
-        System.out.println(strTo16(content));
+    public static void main(String[] args) throws IOException, InterruptedException {
+//        String content = "this is a demoahdajshdajsdhaskjdhajsdhasjk";
+//        System.out.println(strTo16(content));
+
+        Process process = Runtime.getRuntime().exec("cmd /c dir windows");
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String str="";
+        while ( (str=bufferedReader.readLine()) != null) System.out.println(new String(str.getBytes(),"ISO8859-1"));
+        process.waitFor();
     }
     public static String strTo16(String s) {
         String str = "";

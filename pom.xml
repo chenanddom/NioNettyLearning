@@ -8,5 +8,11 @@
     <artifactId>NioNettyLearning</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
+    <modules>
+        <module>buffer-container</module>
+        <module>channel-filechannel</module>
+        <module>network-device-information</module>
+    </modules>
     
 </project>

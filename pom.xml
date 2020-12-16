@@ -13,6 +13,7 @@
         <module>buffer-container</module>
         <module>channel-filechannel</module>
         <module>network-device-information</module>
+        <module>socket-communication</module>
     </modules>
     
 </project>

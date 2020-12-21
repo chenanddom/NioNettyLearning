@@ -62,16 +62,40 @@ public class ReuseAddressTest {
             @Override
             public void run() {
                 try {
-                    Socket socket = new Socket("localhost", 8088);
-                    Thread.sleep(3000);
+//                    Socket socket = new Socket("localhost", 8088);
+                    Socket socket = new Socket();
+                    /**
+                     * 因为Windows 操作系统并没有完全实现BSD Socket 的标准，所以意味着在
+                     * Windows 操作系统中不能使用setReuseAddress (boolean）方法来实现端口复用。
+                     */
+                    socket.setReuseAddress(true);
+                    socket.bind(new InetSocketAddress(7777));
+                    socket.connect(new InetSocketAddress("localhost",8088));
+                    System.out.println("socket.getLocalPort()="+socket.getLocalPort());
+
+//                    Thread.sleep(3000);
                     socket.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                } catch (InterruptedException e) {
+                } /*catch (InterruptedException e) {
                     e.printStackTrace();
-                }
+                }*/
             }
         };
         client.start();
+        /**
+         * 执行的结果：
+         * java.net.BindException: Address already in use: connect
+         * 	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+         * 	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+         * 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+         * 	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+         * 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+         * 	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+         * 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+         * 	at java.net.Socket.connect(Socket.java:589)
+         * 	at java.net.Socket.connect(Socket.java:538)
+         * 	at com.itdom.ReuseAddressTest$2.run(ReuseAddressTest.java:69)
+         */
     }
 }

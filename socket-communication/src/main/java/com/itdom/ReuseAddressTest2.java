@@ -35,6 +35,7 @@ public class ReuseAddressTest2 {
         ServerSocket serverSocket = new ServerSocket(8088);
         System.out.println("accept begin");
         Socket socket = serverSocket.accept();
+        socket.setReuseAddress(false);
         System.out.println("accept end");
         socket.close();
         serverSocket.close();

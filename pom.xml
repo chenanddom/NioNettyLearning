@@ -14,6 +14,9 @@
         <module>channel-filechannel</module>
         <module>network-device-information</module>
         <module>socket-communication</module>
+        <module>use-of-selectors</module>
+        <module>asynchrous-io</module>
+        <module>netty-application-of-netty</module>
     </modules>
     
 </project>

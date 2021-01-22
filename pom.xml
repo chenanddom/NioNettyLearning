@@ -7,6 +7,7 @@
     <groupId>groupId</groupId>
     <artifactId>NioNettyLearning</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
 
     <modules>
@@ -16,7 +17,8 @@
         <module>socket-communication</module>
         <module>use-of-selectors</module>
         <module>asynchrous-io</module>
-        <module>netty-application-of-netty</module>
+        <module>netty-io-evolution</module>
+        <module>netty-introduction-nio</module>
     </modules>
     
 </project>

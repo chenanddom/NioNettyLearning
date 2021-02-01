@@ -19,6 +19,7 @@
         <module>asynchrous-io</module>
         <module>netty-io-evolution</module>
         <module>netty-introduction-nio</module>
+        <module>netty-codec</module>
     </modules>
     
 </project>

@@ -26,7 +26,13 @@ public class SubReqServer {
                     .childHandler(new ChannelInitializer<SocketChannel>(){
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
+                            /**
+                             * ProtobufVarint32FrameDecoder负责解决半包问题
+                              */
                         socketChannel.pipeline().addLast(new ProtobufVarint32FrameDecoder());
+                            /**
+                             * ProtobufDecoder负责protobuf解码
+                             */
                         socketChannel.pipeline().addLast(new ProtobufDecoder(SubscribeReqOuterClass.SubscribeReq.getDefaultInstance()));
                         socketChannel.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
                         socketChannel.pipeline().addLast(new ProtobufEncoder());

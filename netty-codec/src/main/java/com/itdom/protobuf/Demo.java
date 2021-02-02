@@ -23,4 +23,20 @@ public class Demo {
         System.out.println("After decode:"+subscribeReq.toString());
         System.out.println("Assert equal:-->"+subscribeReq.equals(req));
     }
+    /**
+     * 执行结果：
+     * Before encode req = subReqID: 1
+     * userName: "chendom"
+     * productName: "Netty \346\235\203\345\250\201\346\214\207\345\215\227"
+     * address: "\346\267\261\345\234\263"
+     * address: "\345\214\227\346\265\267"
+     *
+     * After decode:subReqID: 1
+     * userName: "chendom"
+     * productName: "Netty \346\235\203\345\250\201\346\214\207\345\215\227"
+     * address: "\346\267\261\345\234\263"
+     * address: "\345\214\227\346\265\267"
+     *
+     * Assert equal:-->true
+     */
 }

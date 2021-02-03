@@ -24,10 +24,24 @@
             <artifactId>protobuf-java</artifactId>
             <version>3.2.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.jboss.marshalling</groupId>
+            <artifactId>jboss-marshalling</artifactId>
+            <version>1.4.11.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.marshalling</groupId>
+            <artifactId>jboss-marshalling-serial</artifactId>
+            <version>1.4.11.Final</version>
+        </dependency>
+
     </dependencies>
 
     <build>
         <defaultGoal>package</defaultGoal>
+<!--        设置各种有用属性（从 OS 中检测的 ${os.name} 和 ${os.arch} 属性）的 Maven 插件-->
         <extensions>
             <extension>
                 <groupId>kr.motd.maven</groupId>

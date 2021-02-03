@@ -27,7 +27,7 @@ public class SubReqServer {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             /**
-                             * ProtobufVarint32FrameDecoder负责解决半包问题
+                             * ProtobufVarint32FrameDecoder负责解决半包问题,如果此处忽略了对半包的的处理，程序将无法正常的工作。
                               */
                         socketChannel.pipeline().addLast(new ProtobufVarint32FrameDecoder());
                             /**

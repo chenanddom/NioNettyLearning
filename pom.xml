@@ -20,6 +20,7 @@
         <module>netty-io-evolution</module>
         <module>netty-introduction-nio</module>
         <module>netty-codec</module>
+        <module>netty-http</module>
     </modules>
     
 </project>

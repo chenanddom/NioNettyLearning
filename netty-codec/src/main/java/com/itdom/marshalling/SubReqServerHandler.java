@@ -11,6 +11,7 @@ public class SubReqServerHandler extends ChannelHandlerAdapter {
         SubscribeResp resp = new SubscribeResp();
         resp.setSubReqID(req.getSubReqID());
         resp.setDesc("Netty book order succed,3 days later,sent to the designated address");
+        resp.setUserName(req.getUserName());
         resp.setRespCode(0);
         ctx.writeAndFlush(resp);
     }

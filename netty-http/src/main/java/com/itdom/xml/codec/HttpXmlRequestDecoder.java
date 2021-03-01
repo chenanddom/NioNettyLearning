@@ -11,7 +11,7 @@ import java.util.List;
 import static io.netty.handler.codec.http.HttpHeaders.Names.CONTENT_TYPE;
 
 
-public class HttpXmlRequestDecoder extends AbstractHttpXmlDecoder<FullHttpRequest,Object> {
+public class HttpXmlRequestDecoder extends AbstractHttpXmlDecoder<FullHttpRequest> {
 
     public HttpXmlRequestDecoder(Class<?> clazz){
         this(clazz,false);
@@ -28,10 +28,6 @@ public class HttpXmlRequestDecoder extends AbstractHttpXmlDecoder<FullHttpReques
         ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
     }
 
-    @Override
-    protected void encode(ChannelHandlerContext channelHandlerContext, Object o, List<Object> list) throws Exception {
-     super.encode(channelHandlerContext,o,list);
-    }
 
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest, List<Object> list) throws Exception {

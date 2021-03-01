@@ -3,6 +3,7 @@ package com.itdom.xml.codec;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageCodec;
+import io.netty.handler.codec.MessageToMessageDecoder;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IUnmarshallingContext;
@@ -11,7 +12,7 @@ import org.jibx.runtime.JiBXException;
 import java.io.StringReader;
 import java.nio.charset.Charset;
 
-public abstract class AbstractHttpXmlDecoder<T,O> extends MessageToMessageCodec<T,O> {
+public abstract class AbstractHttpXmlDecoder<T> extends MessageToMessageDecoder<T> {
 
     private final static String CHARSET_NAME = "UTF-8";
 

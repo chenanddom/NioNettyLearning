@@ -16,8 +16,7 @@ public class HttpXmlRequestDecoder extends AbstractHttpXmlDecoder<FullHttpReques
     public HttpXmlRequestDecoder(Class<?> clazz){
         this(clazz,false);
     }
-
-    public HttpXmlRequestDecoder(Class clazz, boolean isPrint) {
+    public HttpXmlRequestDecoder(Class<?> clazz, boolean isPrint) {
         super(clazz, isPrint);
     }
 
@@ -31,6 +30,11 @@ public class HttpXmlRequestDecoder extends AbstractHttpXmlDecoder<FullHttpReques
 
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest, List<Object> list) throws Exception {
-
+        if (!fullHttpRequest.getDecoderResult().isSuccess()){
+            sendError(channelHandlerContext,HttpResponseStatus.BAD_REQUEST);
+            return;
+        }
+        HttpXmlRequest httpXmlRequest = new HttpXmlRequest(fullHttpRequest, decode0(channelHandlerContext, fullHttpRequest.content()));
+        list.add(httpXmlRequest);
     }
 }

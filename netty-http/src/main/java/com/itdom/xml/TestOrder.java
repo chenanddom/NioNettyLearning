@@ -41,4 +41,26 @@ public class TestOrder {
         Order order = (Order) uctx.unmarshalDocument(reader);
         return order;
     }
+    /**
+     * 执行结果:
+     * <?xml version="1.0" encoding="UTF-8"?>
+     * <order xmlns="http://itdom.com/xml/pojo" orderNumber="123" total="9999.999">
+     *   <customer customerNumber="123">
+     *     <firstName>chen</firstName>
+     *     <lastName>dom</lastName>
+     *   </customer>
+     *   <billTo>
+     *     <city>深圳市</city>
+     *     <postCode>518000</postCode>
+     *     <country>中国</country>
+     *   </billTo>
+     *   <shipping>INTERNATIONAL_MAIL</shipping>
+     *   <shipTo>
+     *     <city>深圳市</city>
+     *     <postCode>518000</postCode>
+     *     <country>中国</country>
+     *   </shipTo>
+     * </order>
+     * com.itdom.xml.pojo.Order@9807454
+     */
 }
